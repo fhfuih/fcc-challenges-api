@@ -28,6 +28,15 @@ app.get('/api/timestamp/:date_string?', function(req, res) {
   }
 });
 
+app.get('/api/whoami', function(req, res) {
+  // console.log(req.ip, req.headers['x-forwarded-for'], req.connection.remoteAddress);
+  res.json({
+    "ipaddress": req.ip,
+    "language": req.headers['accept-language'],
+    "software": req.headers['user-agent']
+  })
+});
+
 // listen for requests :)
 const listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
