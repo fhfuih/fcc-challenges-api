@@ -16,6 +16,10 @@ h1 {
   color: #373fff;
 }
 
+h2 {
+  margin-top: 3rem;
+}
+
 h1, h2, h3 {
   text-align: center
 }
@@ -38,11 +42,17 @@ footer {
 
 code {
   color: red;
-  background-color: cornsilk;
 }
 
 a code {
   color: black;
+}
+
+pre {
+  text-align: left;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
 }
 
 .example {
@@ -52,12 +62,15 @@ a code {
   margin: 0 auto;
   padding: 1rem;
   padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .example:before {
   content: "EXAMPLE";
   position: relative;
-  top: -0.5rem;
+  top: -14px;
   left: -40%;
   background-color: white;
   border: white 5px solid;
