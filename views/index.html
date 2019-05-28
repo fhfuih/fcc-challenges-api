@@ -1,0 +1,73 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Welcome to Glitch!</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- import the webpage's client-side javascript file -->
+    <!--     <script src="/client.js" defer></script> -->
+  </head>
+  <body>
+    <header>
+      <h1>
+        FCC Challenges: APIs and Microservices
+      </h1>
+      <p>
+        It seems like you have found this secret place! Now try not to visit the root URL, but the following api instead:
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <h2>
+          Timestamp API ⌚💌
+        </h2>
+        <div class="display">
+          <pre><code>&lt;this project&gt;.glitch.me/api/timestamp/&lt;ISO time string or timestamp integer&gt;</code></pre>
+          This will give you a response of the time object you enter in JSON!
+        </div>
+        <div class="example">
+          <div>
+            <div class="bold">
+              Input
+            </div>
+            <pre><a href="api/timestamp/2015-12-25"><code>&lt;project&gt;.glitch.me/api/timestamp/2015-12-25</code></a> </pre>
+            <pre><a href="api/timestamp/1451001600000"><code>&lt;project&gt;.glitch.me/api/timestamp/1451001600000</code></a></pre>
+          </div>
+          <div>
+            <div class="bold">
+              Output
+            </div>
+            <pre><code>{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}</code></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Made with <a href="https://glitch.com">Glitch</a>!
+    </footer>
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+
+  </body>
+</html>
