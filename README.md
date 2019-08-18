@@ -7,12 +7,12 @@ This is the all-in-one service of the ["APIs and Microservices Projects" challen
 Demo
 ------------
 
-The service includes a front page and is hosted on [Glitch](https://glitch.com/). All APIs and their docs are shown on the front page [here](https://fcc-challenge-api.glitch.me/).
+The service includes a [demo front page](https://fcc-challenge-api.glitch.me/) and is hosted on [Glitch](https://glitch.com/). All APIs and their docs are shown on the front page.
 
 Currently implemented challenges:
 
 - [x] Timestamp Microservice
-- [ ] Request Header Parser Microservice
+- [x] Request Header Parser Microservice
 - [ ] URL Shortener Microservice
 - [ ] Exercise Tracker
 - [ ] File Metadata Microservice

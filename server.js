@@ -3,6 +3,7 @@
 
 // init project
 const express = require('express');
+const shortener = require('./shortener');
 const app = express();
 
 // we've started you off with Express, 
@@ -16,6 +17,12 @@ app.get('/', function(request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
+/********************************************
+ * 
+ * 1. Timestamp
+ *
+ *******************************************/
+
 app.get('/api/timestamp/:date_string?', function(req, res) {
   let input = Number(req.params.date_string) || req.params.date_string;
   let x = new Date(input);
@@ -28,6 +35,12 @@ app.get('/api/timestamp/:date_string?', function(req, res) {
   }
 });
 
+/********************************************
+ * 
+ * 2. whoami
+ *
+ *******************************************/
+
 app.get('/api/whoami', function(req, res) {
   // console.log(req.ip, req.headers['x-forwarded-for'], req.connection.remoteAddress);
   res.json({
@@ -36,6 +49,20 @@ app.get('/api/whoami', function(req, res) {
     "software": req.headers['user-agent']
   })
 });
+
+/********************************************
+ * 
+ * 3. shortener
+ * Using 
+ *   - generated _id for each url as the shortened url code
+ *   - a passphrase to later query their shortened url # 
+ *
+ *******************************************/
+
+app.post('/api/shorturl/new', function(req, res) {
+  const url = req.body;
+  
+})
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, function() {
