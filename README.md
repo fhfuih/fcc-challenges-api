@@ -13,7 +13,7 @@ Currently implemented challenges:
 
 - [x] Timestamp Microservice
 - [x] Request Header Parser Microservice
-- [ ] URL Shortener Microservice
+- [x] URL Shortener Microservice
 - [ ] Exercise Tracker
 - [ ] File Metadata Microservice
 
