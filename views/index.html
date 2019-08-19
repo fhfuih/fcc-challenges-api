@@ -18,10 +18,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/normalize.css">
     <link rel="stylesheet" href="/style.css">
     
     <!-- import the webpage's client-side javascript file -->
-    <!--     <script src="/client.js" defer></script> -->
+    <script src="/client.js" defer></script>
   </head>
   <body>
     <header>
@@ -38,17 +39,23 @@
         <h2>
           Timestamp API ⌚💌
         </h2>
+
         <div class="display">
-          <p><code>&lt;this project&gt;.glitch.me/api/timestamp/&lt;ISO time string or timestamp integer&gt;</code></p>
-          <p>This will respond you with the timestamp you enter!</p>
+          <p>
+            <code>&lt;host&gt;/api/timestamp/&lt;ISO time string or timestamp integer&gt;</code>
+          </p>
+          <p>
+            This will respond you with the timestamp you enter!
+          </p>
         </div>
+
         <div class="example">
           <div>
             <div class="bold">
               Input
             </div>
-            <pre><a href="api/timestamp/2015-12-25"><code>&lt;project&gt;.glitch.me/api/timestamp/2015-12-25</code></a> </pre>
-            <pre><a href="api/timestamp/1451001600000"><code>&lt;project&gt;.glitch.me/api/timestamp/1451001600000</code></a></pre>
+            <pre><a href="api/timestamp/2015-12-25"><code>&lt;project&gt;/api/timestamp/2015-12-25</code></a></pre>
+            <pre><a href="api/timestamp/1451001600000"><code>&lt;project&gt;/api/timestamp/1451001600000</code></a></pre>
           </div>
           <div>
             <div class="bold">
@@ -58,53 +65,99 @@
           </div>
         </div>
       </section>
+
       <section>
         <h2>
           WhoAmI API 👀❔
         </h2>
+
         <div class="display">
-          <p><code>&lt;this project&gt;.glitch.me/api/whoami/</code></p>
-          <p>This will resond you with the information of your host and request!</p>
+          <p><code>&lt;host&gt;/api/whoami/</code>
+          </p>
+          <p>
+            This will resond you with the information of your host and request!
+          </p>
         </div>
+
         <div class="example">
           <div>
             <div class="bold">
               Input
             </div>
-            <pre><a href="api/whoami"><code>&lt;project&gt;.glitch.me/api/whoami/</code></a></pre>
+            <pre><a href="api/whoami"><code>&lt;project&gt;/api/whoami/</code></a></pre>
           </div>
           <div>
             <div class="bold">
               Output
             </div>
-            <pre><code>{<br>    "ipaddress": "159.20.14.100",<br>    "language": "en-US,en;q=0.5",<br>    "software":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0"<br>}</code></pre>
+            <pre><code>{<br>    "ip": "159.20.14.100",<br>    "language": "en-US,en;q=0.5",<br>    "software":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0"<br>}</code></pre>
           </div>
         </div>
       </section>
+
       <section>
         <h2>
           URL Shortener Service 🔗💥
         </h2>
+
         <div class="display">
-          <p><code>POST &lt;this project&gt;.glitch.me/api/shorturl/new</code>with plain text URL</p>
-          <p>This will resond you with both the original and the shortened URL.</p>
-          <p><code>GET &lt;this project&gt;.glitch.me/api/shorturl/&lt;id&gt;</code></p>
-          <p>This will redirect you to the corresponding website.</p>
+          <p>
+            <code>POST &lt;host&gt;/api/shorturl/new - application/json { "url": "Valid HTTP(S) URL" }</code>
+          </p>
+          <p>
+            This will resond you with both the original and the shortened URL.
+          </p>
+          <p>
+            <code>GET &lt;host&gt;/api/shorturl/&lt;id&gt;</code>
+          </p>
+          <p>
+            This will redirect you to the corresponding website.
+          </p>
+          <p class="italic">
+            Note that the database is capped to 4096MB. Old records are not guaranteed to perserve forever.
+          </p>
+          <p class="italic">
+            This shorturl service is for demo only. I am not responsible for any URL entries stored in this database, nor any content the URLs point to.
+          </p>
         </div>
+
         <div class="example">
           <div>
             <div class="bold">
               Input
             </div>
-            <pre><a href="api/whoami"><code>&lt;project&gt;.glitch.me/api/whoami/</code></a></pre>
+            <pre><code>&lt;project&gt;/api/shorturl/new - { "url": "https://github.com" }</code></pre>
+            <form action="api/shorturl/new" method="POST" name="shorturl-form-create" id="shorturl-form-create">
+              <input type="url" name="url" id="shorturl-input-url" value="https://github.com" />
+              <input type="button" value="Submit" id="shorturl-input-button" onclick="onOubmitShortUrlCreateForm()" />
+            </form>
           </div>
           <div>
             <div class="bold">
               Output
             </div>
-            <pre><code>{<br>    "ipaddress": "159.20.14.100",<br>    "language": "en-US,en;q=0.5",<br>    "software":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0"<br>}</code></pre>
+            <pre><code>{<br>    "url": "https://github.com",<br>    "short": "wQLKLM4Cc"<br>}</code></pre>
+          </div>
+
+          <div>
+            <div class="bold">
+              Input
+            </div>
+            <pre><a href="api/shorturl/wQLKLM4Cc"><code>&lt;project&gt;/api/shorturl/wQLKLM4Cc</code></a></pre>
+          </div>
+          <div>
+            <div class="bold">
+              Output
+            </div>
+            <pre><code>REDIRECT - https://github.com</code></pre>
           </div>
         </div>
+      </section>
+
+      <section>
+        <h2>
+          Exercise Tracker 💦💪
+        </h2>
       </section>
     </main>
 
@@ -115,7 +168,6 @@
     <!-- include the Glitch button to show what the webpage is about and
           to make it easier for folks to view source and remix -->
     <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js"></script>
 
   </body>
 </html>
