@@ -7,6 +7,7 @@ const whoAmI = require('./whoAmI/whoAmI.routes')
 const shortUrl = require('./shortUrl/shortUrl.routes')
 
 router.use(cors())
+router.use(bodyParser.urlencoded({ extended: false }))
 router.use(bodyParser.json({ strict: false }))
 router.use(mongoSanitize())
 router.use('/api/timestamp', timestamp)
