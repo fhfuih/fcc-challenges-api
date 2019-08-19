@@ -3,28 +3,16 @@ const shortid = require('shortid')
 const URL = require('url')
 const dns = require('dns')
 
-function validateUrl (url) {
+function validateUrlFormat (url) {
+  const { protocol } = new URL.URL(url)
+  return protocol === 'http:' || protocol === 'https:'
+}
+
+function validateUrlResolve (url) {
+  const { host } = new URL.URL(url)
   return new Promise((resolve, reject) => {
-    let host, protocol
-
-    try {
-      const urlObject = new URL.URL(url)
-      host = urlObject.host
-      protocol = urlObject.protocol
-    } catch (e) {
-      resolve(false)
-    }
-
-    if (protocol !== 'http:' || protocol !== 'https:') {
-      resolve(false)
-    }
-
     dns.lookup(host, err => {
-      if (err) {
-        resolve(false)
-      } else {
-        resolve(true)
-      }
+      resolve(!err)
     })
   })
 }
@@ -37,10 +25,16 @@ const shortUrlSchema = new mongoose.Schema({
   url: {
     type: String,
     required: true,
-    validate: {
-      validator: validateUrl,
-      message: 'Malformed or invalid URL'
-    }
+    validate: [
+      {
+        validator: validateUrlFormat,
+        message: 'The URL is malformed or not of HTTP(S) protocol'
+      },
+      {
+        validator: validateUrlResolve,
+        message: 'The URL points to nowhere'
+      }
+    ]
   }
 }, {
   capped: 4096,

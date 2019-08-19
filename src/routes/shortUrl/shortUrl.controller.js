@@ -1,3 +1,4 @@
+const { NotFoundError } = require('../../errors/errors')
 const ShortUrl = require('./shortUrl.model')
 
 async function create (req, res) {
@@ -11,9 +12,20 @@ async function create (req, res) {
 }
 
 async function get (req, res) {
-  const id = req.params
-  const { url } = await ShortUrl.findById(id)
-  res.redirect(url)
+  const { id } = req.params
+  const { url } = (await ShortUrl.findById(id)) || {}
+  if (url) {
+    res.redirect(url)
+  } else {
+    throw new NotFoundError('Short URL record not found')
+  }
 }
 
-module.exports = { create, get }
+async function list (req, res) {
+  const data = await ShortUrl.find()
+  res.json({
+    data
+  })
+}
+
+module.exports = { create, get, list }
