@@ -7,7 +7,7 @@
   "description": "A all-in-one service of the \"APIs and Microservices Projects\" challenges on freeCodeCamp.",
   "main": "server.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

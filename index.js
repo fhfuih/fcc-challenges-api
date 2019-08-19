@@ -3,8 +3,8 @@
 require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
-const router = require('./routes')
-const errors = require('./middleware/errors')
+const router = require('./src/routes')
+const errors = require('./src/middleware/errors')
 
 const app = express()
 const {
