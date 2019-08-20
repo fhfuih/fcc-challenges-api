@@ -56,7 +56,6 @@ footer {
 
 code {
   color: red;
-  font-size: .8rem;
 }
 
 a code {
@@ -82,7 +81,7 @@ pre {
 .example:before {
   content: "EXAMPLE";
   position: relative;
-  top: -14px;
+  top: -10px;
   left: -40%;
   background-color: white;
   border: white 5px solid;
