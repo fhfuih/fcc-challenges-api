@@ -260,6 +260,34 @@
           </div>
         </div>
       </section>
+
+      <section>
+        <h2>
+          File Metadata Service 📃📁
+        </h2>
+
+        <div class="display">
+          <p>
+            <code>POST &lt;host&gt;/api/file<br>multipart/form-data { upfile }</code>
+          </p>
+          <p>
+            This will respond you with the uploaded file name and size.
+          </p>
+        </div>
+
+        <div class="example">
+          <div>
+            <div class="bold">
+              Input
+            </div>
+            <pre><code>&lt;project&gt;/api/file</code></pre>
+            <form action="api/file" method="POST" name="file-form" id="file-form" enctype="multipart/form-data">
+              <input type="file" name="upfile" id="ff-upfile" required />
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
