@@ -214,10 +214,22 @@
             </div>
             <pre><code>POST &lt;project&gt;/api/exercise/new</code></pre>
             <form action="api/exercise/new" method="POST" name="exercise-form-create-exercise" id="exercise-form-create-exercise">
-              <input type="text" name="userId" placeholder="userId" required />
-              <input type="text" name="description" placeholder="description" required />
-              <input type="number" name="duration" placeholder="duration" required />
-              <input type="date" name="date" placeholder="date" required />
+              <div class="field">
+                <label for="ce-userId">userId</label>
+                <input type="text" name="userId" id="ce-userId" required />
+              </div>
+              <div class="field">
+                <label for="ce-description">description</label>
+                <input type="text" name="description" id="ce-description" required />
+              </div>
+              <div class="field">
+                <label for="ce-duration">duration</label>
+                <input type="number" name="duration" id="ce-duration" required />
+              </div>
+              <div class="field">
+                <label for="ce-date">date</label>
+                <input type="date" name="date" id="ce-date" required />
+              </div>
               <input type="submit" value="Submit" />
             </form>
           </div>
@@ -227,10 +239,22 @@
             </div>
             <pre><code>GET &lt;project&gt;/api/exercise/log</code></pre>
             <form action="api/exercise/log" method="GET" name="exercise-form-list-exercise" id="exercise-form-list-exercise">
-              <input type="text" name="userId" placeholder="userId" required />
-              <input type="date" name="from" placeholder="from" />
-              <input type="date" name="to" placeholder="to" />
-              <input type="number" name="limit" placeholder="limit" />
+              <div class="field">
+                <label for="le-userId">userId</label>
+                <input type="text" name="userId" id="le-userId" required />
+              </div>
+              <div class="field">
+                <label for="le-from">from</label>
+                <input type="date" name="from" id="le-from" />
+              </div>
+              <div class="field">
+                <label for="le-to">to</label>
+                <input type="date" name="to" id="le-to" />
+              </div>
+              <div class="field">
+                <label for="le-limit">limit</label>
+                <input type="number" name="limit" id="le-limit" />
+              </div>
               <input type="submit" value="Submit" />
             </form>
           </div>

@@ -94,3 +94,18 @@ pre {
   flex-direction: column;
   align-items: center;
 }
+
+.field {
+  display: flex;
+  width: 300px;
+  padding-bottom: 10px;
+}
+
+.field > label {
+  text-align: left;
+  flex: 0 0 100px;
+}
+
+/* .field > input {
+  flex: 1 1 100%;
+} */
