@@ -15,12 +15,10 @@ Currently implemented challenges:
 - [x] Request Header Parser Microservice
 - [x] URL Shortener Microservice
 - [x] Exercise Tracker
-- [ ] File Metadata Microservice
+- [x] File Metadata Microservice
 
 License
 -------------
-
-Holy... What do you think I expect to profit from these simple challenges?
 
 <a href="http://www.wtfpl.net/"><img src="http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-1.png" width="80" height="15" alt="WTFPL" /></a>
 
