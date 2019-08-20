@@ -48,7 +48,10 @@ async function list (req, res) {
     userId,
     ...(getDateQuery(from, to) || {})
   }
-  const options = limit ? { limit } : undefined
+  const options = {
+    sort: { date: 1 },
+    ...(limit ? { limit } : {})
+  }
   const data = await Exercise.find(query, null, options)
   res.json({ data })
 }
